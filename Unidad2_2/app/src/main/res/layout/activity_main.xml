@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linear1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hola_mundo"
+            android:textSize="30sp">
+        </TextView>
+
+        <Button
+            android:id="@+id/boton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bot_n"
+            android:textSize="30sp">
+        </Button>
+
+        <CheckBox
+            android:id="@+id/checkRojo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rojo">
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/checkAzul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/azul">
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/checkAmarillo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amarillo">
+        </CheckBox>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

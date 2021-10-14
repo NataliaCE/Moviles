@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:foregroundTint="@color/white"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tituloText"
+        android:layout_width="320dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="44dp"
+        android:text="@string/titulo"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121" />
+
+    <TextView
+        android:id="@+id/explicacionText"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="448dp"
+        android:text="@string/explicacion"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/posicionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="352dp"
+        android:text="@string/posicion"
+        android:textColor="@color/gris_oscuro"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/posicionInput"
+        android:layout_width="165dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginBottom="341dp"
+        android:ems="10"
+        android:hint="@string/Hint"
+        android:inputType="number"
+        android:shadowColor="@color/black"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/gris"
+        android:textColorLink="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/resultadoText"
+        android:layout_width="340dp"
+        android:layout_height="111dp"
+        android:layout_marginBottom="80dp"
+        android:textAlignment="center"
+        android:textColorLink="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/boton"
+        android:layout_width="151dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="246dp"
+        android:backgroundTint="@color/teal_700"
+        android:onClick="click"
+        android:text="@string/boton"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
