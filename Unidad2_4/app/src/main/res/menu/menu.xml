@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/ajustes"
+        android:title="@string/ajustes"
+        android:orderInCategory="1"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/idioma"
+                android:title="@string/idioma"
+                android:orderInCategory="1"></item>
+            <item android:id="@+id/tema"
+                android:title="@string/tema"
+                android:orderInCategory="2"></item>
+            <item android:id="@+id/sonido"
+                android:title="@string/sonido"
+                android:orderInCategory="3"></item>
+        </menu>
+    </item>
+    <item android:id="@+id/contacto"
+        android:title="@string/contacto"
+        android:orderInCategory="2"></item>
+</menu>
