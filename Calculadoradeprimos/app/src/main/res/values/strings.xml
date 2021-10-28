@@ -4,5 +4,4 @@
     <string name="explicacion">Introduce la posición del número primo que quieres calcular:</string>
     <string name="posicion">Posicion:</string>
     <string name="boton">CALCULAR</string>
-    <string name="Hint">Escribe un número</string>
 </resources>

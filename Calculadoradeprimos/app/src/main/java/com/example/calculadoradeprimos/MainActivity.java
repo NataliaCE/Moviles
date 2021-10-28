@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Definición de elementos
     TextView tituloTxt;
     TextView explicacionTxt;
     TextView posicionTxt;
@@ -31,9 +32,12 @@ public class MainActivity extends AppCompatActivity {
         boton = (Button) findViewById(R.id.boton);
         posicionInput = (EditText) findViewById(R.id.posicionInput);
     }
+
+    //Lista para almacenar los primos que ya se han encontrado
     static ArrayList<Integer> lista = new ArrayList<Integer>();
 
     public void click(View v) {
+        //Si la lista está vacía, se inicializa con el primer número primo
         if(lista.size() == 0) {
             lista.add(2);
         }
@@ -42,12 +46,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static int calcular(int pos) {
+        // Si el número ya se ha encontrado, se busca en la lista
         if(lista.size() > pos) {
             return lista.get(pos - 1);
 
         } else {
+            // Si no se ha encontrado, se sigue buscando a partir del último de la lista
             int numero = lista.get(lista.size()-1);
-            int contador = lista.size();
+            int contador = lista.size(); // Posicion en la que se comienza a buscar
             boolean numeroPrimo = false;
 
             while(contador != pos) {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prime number calculator</string>
+    <string name="titulo">PRIME NUMBER CALCULATOR</string>
+    <string name="explicacion">Type the position of the prime number that you want to calculate:</string>
+    <string name="posicion">"Position: "</string>
+    <string name="boton">CALCULATE</string>
+    <string name="Hint">Type a number</string>
+</resources>
