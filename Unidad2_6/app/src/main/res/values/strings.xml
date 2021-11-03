@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Unidad2_6</string>
+    <string name="lunaTitulo">La luna</string>
+    <string name="lunaTexto">La Luna es el único satélite natural de la Tierra. Con un diámetro ecuatorial de 3476 km, es el quinto satélite más grande del sistema solar, mientras que en cuanto al tamaño proporcional respecto a su planeta es el satélite más grande.</string>
+    <string name="montanyaTitulo">La montaña</string>
+    <string name="montanyaTexto">Una montaña es una forma topográfica del relieve terrestre positiva, una eminencia natural que se caracteriza por su altitud y, más generalmente, por su altura relativa, o incluso por su volumen, pendiente, espaciado o continuidad.</string>
+</resources>

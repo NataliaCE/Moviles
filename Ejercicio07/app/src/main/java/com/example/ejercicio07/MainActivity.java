@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,10 +12,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        crearMenu();
     }
 
-    public void crearMenu() {
-        Menu menu;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Menu ajustes = menu.addSubMenu(R.string.ajustes);
+        ajustes.add(R.string.color);
+        ajustes.add(R.string.letra);
+        menu.add(R.string.informacion);
+
+        return true;
     }
 }
