@@ -32,10 +32,13 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //Ajustes se crea como SubMenu para poder añadirle sus propios Items
         SubMenu ajustes = menu.addSubMenu(R.string.ajustes);
+        MenuItem información = menu.add(R.string.informacion);
+
+        //Items de Ajustes
         MenuItem color = ajustes.add(R.string.color);
         MenuItem letra = ajustes.add(R.string.letra);
-        MenuItem información = menu.add(R.string.informacion);
 
         return true;
     }
