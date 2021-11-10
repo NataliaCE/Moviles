@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ejercicio07</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="informacion">Información</string>
+    <string name="color">Cambiar color</string>
+    <string name="letra">Cambiar letra</string>
+</resources>

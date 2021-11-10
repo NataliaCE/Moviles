@@ -46,9 +46,12 @@ public class Actividad2 extends AppCompatActivity {
         }
 
         p = (Persona) ejemplo.getSerializableExtra("objeto");
-        Log.d("Persona: ", p.getNombre());
+        /*Log.d("Persona: ", p.getNombre());
         Log.d("Persona: ", String.valueOf(p.getEdad()));
-        Log.d("Persona: ", p.getNacionalidad());
+        Log.d("Persona: ", p.getNacionalidad());*/
+        p.setNombre("Eloy");
+        p.setEdad(18);
+        p.setNacionalidad("español");
 
     }
 

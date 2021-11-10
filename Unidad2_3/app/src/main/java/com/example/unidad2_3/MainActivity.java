@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
                         Bundle b = data.getExtras();
                         if(b != null) {
                             p = (Persona) data.getSerializableExtra("objeto");
-                            Log.d("Result", p.getNombre());
-                            Log.d("Result", String.valueOf(p.getEdad()));
-                            Log.d("Result", p.getNacionalidad());
+                            Log.d("Vuelta: ", p.getNombre());
+                            Log.d("Vuelta: ", String.valueOf(p.getEdad()));
+                            Log.d("Vuelta: ", p.getNacionalidad());
                         }
                     }
                 }
