@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Ejercicio08_BasesDeDatos</string>
+    <string name="a_adir">Añadir</string>
+    <string name="grupo">Grupo:</string>
+    <string name="disco">Disco:</string>
+    <string name="volver">volver</string>
+    <string name="borrar">borrar</string>
+    <string name="actualizar">Actualizar</string>
 </resources>
