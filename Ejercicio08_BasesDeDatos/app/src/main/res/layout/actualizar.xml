@@ -36,11 +36,13 @@
     <EditText
         android:id="@+id/et_discoActualizar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="55dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_discoActualizar"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:textCursorDrawable="@color/black"
+        android:backgroundTint="@color/black"/>
 
     <Button
         android:id="@+id/btn_actualizar"
@@ -50,7 +52,8 @@
         app:layout_constraintTop_toBottomOf="@+id/et_discoActualizar"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/actualizar"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:onClick="clickActualizarBD"/>
 
     <Button
         android:id="@+id/btn_volverActualizar"
@@ -60,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_discoActualizar"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/volver"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:onClick="clickVolverConsulta"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

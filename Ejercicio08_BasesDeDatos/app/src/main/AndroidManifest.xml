@@ -21,6 +21,7 @@
         <activity android:name=".Anyadir"></activity>
         <activity android:name=".Borrar"></activity>
         <activity android:name=".Consultar"></activity>
+        <activity android:name=".Actualizar"></activity>
     </application>
 
 </manifest>

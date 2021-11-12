@@ -17,33 +17,14 @@
             android:padding="3dp"
             android:scrollbars="vertical"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_actualizarCons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="40dp"
-                android:text="@string/actualizar"
-                android:textSize="20dp"/>
-
-            <Button
-                android:id="@+id/btn_volverConsulta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="25dp"
-                android:text="@string/volver"
-                android:textSize="20dp"
-                android:onClick="clickVolver"/>
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_volverConsulta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/volver"
+            android:textSize="20dp"
+            android:onClick="clickVolver" />
 
     </LinearLayout>
 

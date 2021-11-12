@@ -1,3 +1,12 @@
+/**
+ * Ejercicio 8 - Bases de datos
+ *
+ * Esta clase define los elementos del RecyclerView
+ *
+ * @author Natalia Canudas
+ *
+ */
+
 package com.example.ejercicio08_basesdedatos;
 
 public class Encapsulador {
