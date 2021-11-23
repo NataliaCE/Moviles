@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Practica 2 - Hipotenochas</string>
+    <string name="instrucciones">Instrucciones</string>
+    <string name="nuevo_juego">Nuevo juego</string>
+    <string name="dificultad">Dificultad</string>
+    <string name="principiante">Principiante</string>
+    <string name="amateur">Amateur</string>
+    <string name="avanzado">Avanzado</string>
+    <string name="ganador">¡HAS GANADO!</string>
+    <string name="perdedor">¡HAS PERDIDO!</string>
 </resources>
