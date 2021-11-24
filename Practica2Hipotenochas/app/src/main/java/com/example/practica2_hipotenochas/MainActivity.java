@@ -2,7 +2,6 @@ package com.example.practica2_hipotenochas;
 
 import static android.widget.LinearLayout.*;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,11 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //jugar(PRINCIPIANTE, 10);
-        tamanyo = PRINCIPIANTE;
-        bombas = 10;
-        bombasEncontradas = 0;
-        crearLayout();
+        jugar(PRINCIPIANTE, 10);
     }
 
     /**
@@ -73,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 paramBoton.weight = 1;
                 paramBoton.setMargins(-8, -8, -8, -8);
 
-                /**
+                /*
                  * El tag de los botones contiene un array con:
                  * 0- El valor del botón en la matriz.
                  * 1- Número de fila.
@@ -90,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                     b.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
                     b.setOnClickListener(clickNormal);
                     b.setOnLongClickListener(clickLargo);
-
                     b.setTextSize(19);
                     layoutFila.addView(b);
 
@@ -125,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             if(tag[0] == 0) {//No hay bomba
                 Button b = (Button) findViewById(view.getId());
                 String pista = String.valueOf(buscaBombas(tag[1], tag[2]));
-                ponerColor(b, Integer.valueOf(pista));
+                ponerColor(b, Integer.parseInt(pista));
                 b.setText(pista);
             } else { //Hay bomba, derrorta
                 ImageButton ib = (ImageButton) findViewById(view.getId());
@@ -148,14 +142,13 @@ public class MainActivity extends AppCompatActivity {
         public boolean onLongClick(View view) {
             int[] tag = (int[]) view.getTag();
             if(tag[0] == 0) { //No hay bomba, derrota
-                Button b = (Button) findViewById(view.getId());
                 mostrarAlerta(R.string.perdedor);
                 bombasEncontradas = 0;
             } else { //Hay bomba
                 ImageButton ib = (ImageButton) findViewById(view.getId());
                 ib.setImageResource(R.drawable.bandera_roja);
                 bombasEncontradas++;
-                if(bombas == bombasEncontradas) { //Victoria
+                if(bombasEncontradas == bombas) { //Victoria
                     mostrarAlerta(R.string.ganador);
                     bombasEncontradas = 0;
                 }
@@ -187,8 +180,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Infla el menú al abrir la aplicación
      *
-     * @param menu
-     * @return
+     * @param menu Menú que se desea inflar
+     * @return boolean
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -200,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Determina las acciones que realiza cada elemento del menú
      *
-     * @param item
-     * @return
+     * @param item Elemento del menú
+     * @return boolean
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -217,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                // El usuario pulsa OK.
+
                             }
                         });
                 AlertDialog dialog = builder.create();
@@ -261,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
      * Crea los cuadros de dialogo que aparecen al ganar o perder.
      * Crea una nueva partida como la anterior.
      *
-     * @param texto
+     * @param texto Texto que se muestra.
      */
     private void mostrarAlerta(int texto) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
