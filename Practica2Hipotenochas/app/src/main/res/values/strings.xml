@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practica 2 - Hipotenochas</string>
+    <string name="app_name">Desactiva las bombas</string>
     <string name="instrucciones">Instrucciones</string>
     <string name="nuevo_juego">Nuevo juego</string>
     <string name="dificultad">Dificultad</string>
@@ -8,4 +8,11 @@
     <string name="avanzado">Avanzado</string>
     <string name="ganador">¡HAS GANADO!</string>
     <string name="perdedor">¡HAS PERDIDO!</string>
+    <string name="instrucciones_texto">El juego es tipo buscaminas: Cuando pulsas en una casilla,
+    sale un número que identifica cuantas hipotenochas hay alrededor: Ten cuidado porque si pulsas
+    en una casilla que tenga una hipotenocha escondida, perderás. Si crees o tienes la certeza de
+    que hay una hipotenocha, haz un clic largo sobre la casilla para señalarla. No hagas un clic
+    largo en una casilla donde no hay una hipotenocha porque perderás. Ganas una vez hayas
+    encontrado todas las hipotenochas.</string>
+
 </resources>

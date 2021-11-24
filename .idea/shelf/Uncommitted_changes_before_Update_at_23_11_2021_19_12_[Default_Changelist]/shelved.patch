@@ -1,0 +1,30 @@
+Index: .idea/Moviles.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Moviles.iml b/.idea/Moviles.iml
+--- a/.idea/Moviles.iml	(revision a9104f7f2a0c1b5420609265dd46e77e7dc4cfac)
++++ b/.idea/Moviles.iml	(date 1637691160296)
+@@ -1,9 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android" name="Android">
++      <configuration />
++    </facet>
++  </component>
+   <component name="NewModuleRootManager" inherit-compiler-output="true">
+     <exclude-output />
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
++    </content>
++    <orderEntry type="jdk" jdkName="Android API 31 Platform" jdkType="Android SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file

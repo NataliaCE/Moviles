@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout layoutFila = new LinearLayout(MainActivity.this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.weight = 1;
+            params.setMargins(-5, -5, -5, -5);
             layoutFila.setLayoutParams(params);
             layoutFila.setOrientation(HORIZONTAL);
             layoutPadre.addView(layoutFila);
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                 LinearLayout.LayoutParams paramBoton = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
                 paramBoton.weight = 1;
+                paramBoton.setMargins(-8, -8, -8, -8);
 
                 /**
                  * El tag de los botones contiene un array con:
@@ -77,19 +80,21 @@ public class MainActivity extends AppCompatActivity {
                     b.setLayoutParams(paramBoton);
                     b.setTag(tag);
                     b.setId(View.generateViewId());
-                    //b.setText("0");
-                    b.setPadding(-1, -1, -1, -1);
+                    b.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
                     b.setOnClickListener(clickNormal);
                     b.setOnLongClickListener(clickLargo);
+
+                    b.setTextSize(19);
                     layoutFila.addView(b);
                 }else{
                     ImageButton ib = new ImageButton(MainActivity.this);
                     ib.setLayoutParams(paramBoton);
                     ib.setTag(tag);
                     ib.setId(View.generateViewId());
-                    ib.setPadding(-1, -1, -1, -1);
+                    ib.setPadding(0, 0, 0, 0);
                     ib.setScaleType(ImageView.ScaleType.FIT_CENTER); //Android escala la imagen
                     ib.setAdjustViewBounds(true); //Ajusta los bordes
+                    ib.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
                     ib.setOnClickListener(clickNormal);
                     ib.setOnLongClickListener(clickLargo);
                     layoutFila.addView(ib);
@@ -106,9 +111,10 @@ public class MainActivity extends AppCompatActivity {
             if(tag[0] == 0) {//No hay bomba
                 Button b = (Button) findViewById(view.getId());
                 String pista = String.valueOf(buscaBombas(tag[1], tag[2]));
+                ponerColor(b, Integer.valueOf(pista));
                 b.setText(pista);
                 bombasEncontradas++;
-            } else { //Hay bomba
+            } else { //Hay bomba, derrorta
                 ImageButton ib = (ImageButton) findViewById(view.getId());
                 ib.setImageResource(R.drawable.bomba);
                 bombasEncontradas = 0;
@@ -120,11 +126,10 @@ public class MainActivity extends AppCompatActivity {
     OnLongClickListener clickLargo = new OnLongClickListener() {
         @Override
         public boolean onLongClick(View view) {
-            //int tag = (int) view.getTag();
             int[] tag = (int[]) view.getTag();
-            if(tag[0] == 0) { //No hay bomba
+            if(tag[0] == 0) { //No hay bomba, derrota
                 Button b = (Button) findViewById(view.getId());
-                b.setText("T.T");
+                mostrarAlerta(R.string.perdedor);
                 bombasEncontradas = 0;
             } else { //Hay bomba
                 ImageButton ib = (ImageButton) findViewById(view.getId());
@@ -167,8 +172,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.instrucciones:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-                builder.setMessage("Muchas instrucciones")
-                        .setTitle("Titulo")
+                builder.setMessage(R.string.instrucciones_texto)
+                        .setTitle(R.string.instrucciones)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -180,42 +185,28 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();
                 break;
             case R.id.nuevoJuego:
-                //jugar(tamanyo, bombas);
-                bombasEncontradas = 0;
-                crearLayout();
+                jugar(tamanyo, bombas);
                 break;
             case R.id.principiante:
-                //jugar(PRINCIPIANTE, 10);
-                tamanyo = PRINCIPIANTE;
-                bombas = 10;
-                bombasEncontradas = 0;
-                crearLayout();
+                jugar(PRINCIPIANTE, 10);
                 break;
             case R.id.amateur:
-                //jugar(AMATEUR, 30);
-                tamanyo = AMATEUR;
-                bombas = 30;
-                bombasEncontradas = 0;
-                crearLayout();
+                jugar(AMATEUR, 30);
                 break;
             case R.id.avanzado:
-                //jugar(AVANZADO, 60);
-                tamanyo = AVANZADO;
-                bombas = 60;
-                bombasEncontradas = 0;
-                crearLayout();
+                jugar(AVANZADO, 60);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    /*public void jugar(int dificultad, int cantidadBombas) {
+    public void jugar(int dificultad, int cantidadBombas) {
         tamanyo = dificultad;
         bombas = cantidadBombas;
         bombasEncontradas = 0;
         crearLayout();
-    }*/
+    }
 
     private void mostrarAlerta(int texto) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -225,10 +216,42 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // El usuario pulsa OK.
+                        jugar(tamanyo, bombas);
                     }
                 });
 
         AlertDialog dialog = builder.create();
+        dialog.setCancelable(false); //Evita salir con la tecla de retroceso.
+        dialog.setCanceledOnTouchOutside(false); //Evita salir pulsando fuera.
         dialog.show();
+    }
+
+    private void ponerColor(Button b, int numero) {
+        switch (numero) {
+            case 1:
+                b.setTextColor(getResources().getColor(R.color.pista_1));
+                break;
+            case 2:
+                b.setTextColor(getResources().getColor(R.color.pista_2));
+                break;
+            case 3:
+                b.setTextColor(getResources().getColor(R.color.pista_3));
+                break;
+            case 4:
+                b.setTextColor(getResources().getColor(R.color.pista_4));
+                break;
+            case 5:
+                b.setTextColor(getResources().getColor(R.color.pista_5));
+                break;
+            case 6:
+                b.setTextColor(getResources().getColor(R.color.pista_6));
+                break;
+            case 7:
+                b.setTextColor(getResources().getColor(R.color.pista_7));
+                break;
+            case 8:
+                b.setTextColor(getResources().getColor(R.color.pista_8));
+                break;
+        }
     }
 }

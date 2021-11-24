@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="pista_2">#FFC107</color>
+    <color name="pista_1">#8BC34A</color>
+    <color name="pista_3">#FF5722</color>
+    <color name="pista_4">#E91E63</color>
+    <color name="pista_5">#9C27B0</color>
+    <color name="pista_6">#673AB7</color>
+    <color name="pista_7">#253175</color>
+    <color name="pista_8">#0E122B</color>
+
+
 </resources>
