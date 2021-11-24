@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
         crearLayout();
     }
 
+    /**
+     * Crea el layout y la matriz que indica dónde están las bombas.
+     */
     public void crearLayout() {
+        //Se crea la matriz
         matriz = new int[tamanyo][tamanyo];
         int contador = bombas;
         while(contador > 0) {
@@ -52,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        //Se crea el layout
         LinearLayout layoutPadre = (LinearLayout) findViewById(R.id.linearVertical);
-        layoutPadre.removeAllViews();
+        layoutPadre.removeAllViews(); //Limpia el layout del juego anterior.
         for(int i = 0; i < tamanyo; i++) {
             LinearLayout layoutFila = new LinearLayout(MainActivity.this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -70,11 +75,13 @@ public class MainActivity extends AppCompatActivity {
 
                 /**
                  * El tag de los botones contiene un array con:
-                 * 1- El valor del botón en la matriz.
-                 * 2- Número de fila.
-                 * 3- Número de columna
+                 * 0- El valor del botón en la matriz.
+                 * 1- Número de fila.
+                 * 2- Número de columna
                  */
                 int[] tag = {matriz[i][j],i, j};
+
+                //Si hay un 0 se crean botones
                 if(matriz[i][j] == 0) {
                     Button b = new Button(MainActivity.this);
                     b.setLayoutParams(paramBoton);
@@ -86,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
                     b.setTextSize(19);
                     layoutFila.addView(b);
-                }else{
+
+                }else{ //Si hay un -1 se crean image buttons
                     ImageButton ib = new ImageButton(MainActivity.this);
                     ib.setLayoutParams(paramBoton);
                     ib.setTag(tag);
@@ -104,6 +112,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Evento de hacer click normal.
+     * Se encuentra en ambos tipos de botones.
+     * Si hay bomba --> Derrota
+     * Si no hay bomba --> Muestra el número de bombas alrededor.
+     */
     OnClickListener clickNormal = new OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -113,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                 String pista = String.valueOf(buscaBombas(tag[1], tag[2]));
                 ponerColor(b, Integer.valueOf(pista));
                 b.setText(pista);
-                bombasEncontradas++;
             } else { //Hay bomba, derrorta
                 ImageButton ib = (ImageButton) findViewById(view.getId());
                 ib.setImageResource(R.drawable.bomba);
@@ -123,6 +136,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Evento de mantener pulsado el botón.
+     * Se encuentra en ambos tipos de botones.
+     * Si no hay bomba --> derrota.
+     * Si hay bomba --> Va sumando las bombas encontradas hasta que están todas.
+     *                  Entonces es una victoria.
+     */
     OnLongClickListener clickLargo = new OnLongClickListener() {
         @Override
         public boolean onLongClick(View view) {
@@ -144,6 +164,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Comprueba el número de bombas que se encuentran alrededor de la posición introducida.
+     *
+     * @param fila Posición del botón.
+     * @param columna Posición del botón.
+     * @return Número de bombas alrededor del botón.
+     */
     public int buscaBombas(int fila, int columna) {
         int contador = 0;
         if ((fila - 1 >= 0) && (columna - 1 >= 0) && matriz[fila - 1][columna - 1] == -1) contador++;
@@ -157,6 +184,12 @@ public class MainActivity extends AppCompatActivity {
         return contador;
     }
 
+    /**
+     * Infla el menú al abrir la aplicación
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -164,11 +197,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Determina las acciones que realiza cada elemento del menú
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
         switch(id) {
+            // Muestra las instrucciones
             case R.id.instrucciones:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -180,19 +220,22 @@ public class MainActivity extends AppCompatActivity {
                                 // El usuario pulsa OK.
                             }
                         });
-
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 break;
+            // Crea una nueva partida
             case R.id.nuevoJuego:
                 jugar(tamanyo, bombas);
                 break;
+            //Crea una nueva partida con dificultad principiante
             case R.id.principiante:
                 jugar(PRINCIPIANTE, 10);
                 break;
+            //Crea una nueva partida con dificultad amateur
             case R.id.amateur:
                 jugar(AMATEUR, 30);
                 break;
+            //Crea una nueva partida con dificultad avanzado
             case R.id.avanzado:
                 jugar(AVANZADO, 60);
                 break;
@@ -201,6 +244,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Crea una nueva partida
+     *
+     * @param dificultad Indica el tamaño de la matriz
+     * @param cantidadBombas Indica la cantidad de bombas dentro de la matriz
+     */
     public void jugar(int dificultad, int cantidadBombas) {
         tamanyo = dificultad;
         bombas = cantidadBombas;
@@ -208,6 +257,12 @@ public class MainActivity extends AppCompatActivity {
         crearLayout();
     }
 
+    /**
+     * Crea los cuadros de dialogo que aparecen al ganar o perder.
+     * Crea una nueva partida como la anterior.
+     *
+     * @param texto
+     */
     private void mostrarAlerta(int texto) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -226,6 +281,13 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    /**
+     * Dependiendo del número de bombas que hay alrededor del botón pulsado, cambia el texto del
+     * botón a un color.
+     *
+     * @param b Botón pulsado
+     * @param numero Número de bombas
+     */
     private void ponerColor(Button b, int numero) {
         switch (numero) {
             case 1:
