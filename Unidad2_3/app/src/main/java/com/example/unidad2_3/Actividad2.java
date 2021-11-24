@@ -57,7 +57,7 @@ public class Actividad2 extends AppCompatActivity {
 
     public void click2(View v) {
         Intent volver = new Intent(this, MainActivity.class);
-        volver.putExtra("objeto", p);
+        volver.putExtra("objeto", p); //Si se quieren devolver datos
         setResult(RESULT_OK, volver);
         finish();
     }
