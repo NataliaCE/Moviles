@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CamposDeGolf</string>
+    <string name="introduccion">Seleccione una fuente de datos</string>
+    <string name="base_de_datos">base de datos</string>
+    <string name="web">web</string>
+    <string name="identificador">Identificador</string>
+    <string name="nombre">Nombre</string>
+    <string name="a_adir">añadir</string>
+    <string name="insertar_campos_de_golf">Insertar campos de golf</string>
+    <string name="verificar">Verificar</string>
+    <string name="actualizar">actualizar</string>
+    <string name="eliminar">eliminar</string>
+    <string name="votar">votar</string>
+    <string name="actualiza">actualiza</string>
+    <string name="esperando">Esperando SMS de identificación de identidad.</string>
+</resources>
