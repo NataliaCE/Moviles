@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="options">
+        <item>Ajustes</item>
+        <item>Configuración</item>
+        <item>Idioma</item>
+        <item>Información</item>
+    </string-array>
+    <string-array name="ingredientes">
+        <item>Leche</item>
+        <item>Huevos</item>
+        <item>Harina</item>
+        <item>Azucar</item>
+    </string-array>
+</resources>
