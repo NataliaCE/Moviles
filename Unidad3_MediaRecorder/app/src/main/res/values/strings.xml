@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Unidad3_MediaRecorder</string>
+    <string name="grabar">grabar</string>
+    <string name="parar">parar</string>
+</resources>
