@@ -58,8 +58,7 @@ public class MapsActivity<FusedLocationProviderClient> extends FragmentActivity 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        ultimaUbicacion = manager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+
     }
 
     /**
@@ -79,7 +78,7 @@ public class MapsActivity<FusedLocationProviderClient> extends FragmentActivity 
         LatLng huesca = new LatLng(42.14, -0.408);
         LatLng zaragoza = new LatLng(41.65, -0.87);
         LatLng benasque = new LatLng(42.60, 0.52);
-        //mMap.addMarker(new MarkerOptions().position(huesca).title("Marcador Huesca"));
+        mMap.addMarker(new MarkerOptions().position(huesca).title("Marcador Huesca"));
         //mMap.addMarker(new MarkerOptions().position(zaragoza).title("Marcador Zaragoza"));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(huesca));
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(huesca, 8.0f));
@@ -92,6 +91,13 @@ public class MapsActivity<FusedLocationProviderClient> extends FragmentActivity 
         polygonOptions.add(huesca, zaragoza, benasque);
         polygonOptions.strokeColor(Color.BLUE);
         //mMap.addPolygon(polygonOptions);
+
+        LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        try{
+            ultimaUbicacion = manager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        } catch (SecurityException e) {
+            e.getStackTrace();
+        }
 
         LatLng ubicacion = new LatLng(ultimaUbicacion.getLatitude(), ultimaUbicacion.getLongitude());
         mMap.addMarker(new MarkerOptions().position(ubicacion).title("Ubicación actual"));
