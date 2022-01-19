@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MediaPlayer mediaPlayer = new MediaPlayer();
-                mediaPlayer.create(getApplicationContext(), Uri.parse("audio.3gp"));
+                mediaPlayer.create(getApplicationContext(), Uri.parse(audioFile.getAbsolutePath()));
                 mediaPlayer.start();
             }
         });

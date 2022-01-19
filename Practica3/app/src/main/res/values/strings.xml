@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Practica3</string>
+    <string name="mostrar_en_el_mapa">mostrar en el mapa</string>
+    <string name="grabar_audio">grabar audio</string>
+    <string name="reproducir_audio">reproducir audio</string>
+    <string name="grabar_video">grabar video</string>
+    <string name="reproducir_video">reproducir video</string>
+    <string name="marcar_como_visitado">marcar como visitado</string>
+    <string name="title_activity_mapa">mapa</string>
+</resources>

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Moviles.Unidad2_8Sockets.iml" filepath="$PROJECT_DIR$/.idea/modules/Moviles.Unidad2_8Sockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Moviles.Unidad2_8Sockets.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Moviles.Unidad2_8Sockets.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Unidad2_8Sockets.iml" filepath="$PROJECT_DIR$/.idea/modules/Unidad2_8Sockets.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Unidad2_8Sockets.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Unidad2_8Sockets.app.iml" />
     </modules>
